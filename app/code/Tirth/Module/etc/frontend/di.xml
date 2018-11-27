@@ -1,0 +1,80 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="tirth_module_faq_listing_data_source" xsi:type="string">Tirth\Module\Model\ResourceModel\Post\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Tirth\Module\Model\ResourceModel\Post\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">tirth_module_faq</argument>
+            <argument name="resourceModel" xsi:type="string">Tirth\Module\Model\ResourceModel\Post</argument>
+        </arguments>
+    </virtualType>
+
+
+
+<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="tirth_module_form_listing_data_source" xsi:type="string">Tirth\Module\Model\ResourceModel\Form\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Tirth\Module\Model\ResourceModel\Form\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">request_form_table</argument>
+            <argument name="resourceModel" xsi:type="string">Tirth\Module\Model\ResourceModel\Form</argument>
+        </arguments>
+    </virtualType>
+
+
+<!-- plugin  -->
+<type name="Magento\Theme\Block\Html\Topmenu">
+        <plugin name="navLinksTopmenu" type="Tirth\Module\Plugin\Topmenu" sortOrder="-1" />
+    </type>
+    <type name="Tirth\Module\Controller\Index\Example">
+        <plugin name="Tirth_Module_Plugin" type="Tirth\Module\Plugin\ExamplePlugin" />
+    </type>
+
+<!-- image -->
+
+<virtualType name="Tirth\Module\ModuleImageUploader" type="Tirth\Module\Model\ImageUploader"><!-- replace Module with your entity name -->
+    <arguments>
+        <argument name="baseTmpPath" xsi:type="string">test/tmp</argument>
+        <argument name="basePath" xsi:type="string">test</argument>
+        <argument name="allowedExtensions" xsi:type="array"><!-- you can add here file extension restrictions -->
+            <item name="jpg" xsi:type="string">jpg</item>
+            <item name="jpeg" xsi:type="string">jpeg</item>
+            <item name="gif" xsi:type="string">gif</item>
+            <item name="png" xsi:type="string">png</item>
+        </argument>
+    </arguments>
+</virtualType>
+<type name="Tirth\Module\Controller\Adminhtml\Faq\Upload">
+    <arguments>
+        <argument name="imageUploader" xsi:type="object">Tirth\Module\ModuleImageUploader</argument><!-- again, replace Module with the name of your entity. Make sure it matches the name of the virtual type above. -->
+    </arguments>
+</type>
+
+<virtualType name="Magento\Sales\Model\ResourceModel\Order\Grid">
+        <arguments>
+            <argument name="columns" xsi:type="array">
+                <item name="rfname" xsi:type="string">
+                     sales_order.rfname
+                </item>
+                <item name="rfemail" xsi:type="string">
+                     sales_order.rfemail
+                </item>
+                <item name="rftelephone" xsi:type="string">
+                     sales_order.rftelephone
+                </item>
+                <item name="rfcomment" xsi:type="string">
+                     sales_order.rfcomment
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+</config>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Tirth_Module::module" title="F A Q" module="Tirth_Module" sortOrder="51" resource="Tirth_Module::faq"/>
+
+        <add id="Tirth_Module::faq" title="Manage Faq" module="Tirth_Module" sortOrder="10" action="tirth_module/faq/index" resource="Tirth_Module::faq" parent="Tirth_Module::module"/>
+
+        <add id="Tirth_Module::addnew" title="Add Faq" module="Tirth_Module" sortOrder="5" action="tirth_module/faq/addnew" resource="Tirth_Module::faq" parent="Tirth_Module::module"/>
+
+        <add id="Tirth_Module::faq_configuration" title="Configuration" module="Tirth_Module" sortOrder="99" parent="Tirth_Module::module" action="adminhtml/system_config/edit/section/faq" resource="Tirth_Module::module_configuration"/>
+
+		<add id="Tirth_Module::request_from" title="Request from" module="Tirth_Module" sortOrder="52" resource="Tirth_Module::requestForm"/>
+
+		<add id="Tirth_Module::form" title="Manage" module="Tirth_Module" sortOrder="10" action="tirth_module/form/index" resource="Tirth_Module::requestForm" parent="Tirth_Module::request_from"/>
+
+    </menu>
+</config>

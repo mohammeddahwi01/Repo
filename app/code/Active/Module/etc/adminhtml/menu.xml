@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Active_Module::parent" title="Module" module="Active_Module" sortOrder="100" resource="Active_Module::parent"/>
+        <add id="Active_Module::index" title="Module Index" module="Active_Module" sortOrder="10" action="module/index" resource="Active_Module::index" parent="Active_Module::parent"/>
+		<add id="Active_Module::faq" title="Active Faq" module="Active_Module" sortOrder="20" parent="Active_Module::parent" action="module/faq" resource="Active_Module::faq"/>
+
+    </menu>
+</config>

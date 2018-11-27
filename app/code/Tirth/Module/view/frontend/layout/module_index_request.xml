@@ -1,0 +1,23 @@
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Request Form</title>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Tirth\Module\Block\Request" name="request" template="request.phtml"/>
+          <block class="Magento\Newsletter\Block\Subscribe" name="form.subscribe" as="subscribe" template="Magento_Newsletter::subscribe.phtml" after="request"/>
+        </referenceContainer>
+        <referenceContainer name="footer">
+        <block class="Magento\Cms\Block\Block" name="custom_footer_block">
+            <arguments>
+                <argument name="block_id" xsi:type="string">footer_custom</argument>
+            </arguments>
+        </block>
+         <block class="Magento\Newsletter\Block\Subscribe" name="form.subscribe1" as="subscribe" template="Magento_Newsletter::subscribe.phtml"/>
+        </referenceContainer>
+
+      
+        <referenceBlock name="footer_links" remove="true"/>
+      
+    </body>
+</page>

@@ -1,0 +1,48 @@
+<form action="<?php echo $block->getFormAction() ?>" method="post" data-mage-init='{"validation":{}}'>
+    name :: <input name="name" type="text" data-validate="{required:true}">
+    email :: <input type="text" name="email" data-validate="{required:true, 'validate-email':true}">
+    telephone :: <input name="phone" type="text" data-validate="{required:true, 'validate-number':true}">
+    comment :: <textarea rows="4" cols="50" name="comment"></textarea>
+    
+ 	select product :: <br />
+
+ 	<?php
+
+ 		$result=$block->getProductCollection();
+
+ 		foreach ($result as $product) {
+ 			
+ 			// echo "<pre>";
+ 			//  print_r($product->getQty());exit();
+
+ 		?>
+ 		
+
+ 		<?php
+
+ 		?>
+ 		<div style="display:block; float:left; width:20%;">
+ 			<div>
+ 				<input type="hidden" name="mrp[]" value="<?php echo $product->getPrice(); ?>">
+ 				<input type="checkbox" name="chk[]" value="<?php echo $product->getEntityId(); ?>" data-validate="{required:true}"></div>
+	<div>
+
+<?php
+
+	
+	$image = $this->helper('Magento\Catalog\Helper\Image')->init($product,'cart_page_product_thumbnail') ->constrainOnly(true)->keepAspectRatio(true)->keepFrame(false)->setImageFile($product->getImage())->getUrl();
+?>
+<img src="<?php echo $image ?>" />
+	</div>
+
+	<div><?php echo $product->getName(); ?></div>
+	<div><?php echo $product->getPrice(); ?></div>
+
+</div>
+ 		<?php
+ 		}
+
+ 	?>
+ 	
+    <input type="submit" value="Submit" name="save">
+</form>

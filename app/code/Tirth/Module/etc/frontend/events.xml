@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="Tirth_Module_display_text">
+    <observer name="mp_display_text" instance="Tirth\Module\Observer\ChangeDisplayText" />
+    </event>
+	<event name="catalog_product_save_after">
+		<observer name="Tirth" instance="Tirth\Module\Observer\Product\Data" />
+	</event>
+	 <event name="tirth_module_add_data">
+        <observer name="quote_product_add_to_cart" instance="Tirth\Module\Observer\ProductAddToCart" />
+    </event>
+     <event name="checkout_onepage_controller_success_action">
+         <observer name="order_place_save_data" instance="Tirth\Module\Observer\OrderPlaceSaveData" />
+     </event>
+     <!-- <event name="checkout_cart_product_add_after">
+        <observer name="customprice" instance="Tirth\Module\Observer\CustomPrice" />
+    </event> -->
+</config>

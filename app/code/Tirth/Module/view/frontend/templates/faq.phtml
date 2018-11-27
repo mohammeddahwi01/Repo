@@ -1,0 +1,20 @@
+<?php
+$result = $this->faqdata();
+$helperData = $this->getHelperData();
+?>
+<h1><?php echo $helperData; ?></h1>
+<table>
+	<?php foreach($result as $rr): ?>
+		<tr>
+			<td><?php echo $rr->getQuestion(); ?></td>
+		</tr>
+		
+		<tr>
+			<td><?php echo $rr->getAnswer(); ?></td>
+		</tr>
+		<tr>
+			<td><b><?php echo $rr->getCreatedAt(); ?></b></td>
+		</tr>
+		<tr><td><hr/></td></tr>
+	<?php endforeach; ?>
+</table>

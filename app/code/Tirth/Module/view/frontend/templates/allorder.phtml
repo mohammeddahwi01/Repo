@@ -1,0 +1,12 @@
+<?php
+
+$result=$this->getOrderCollection();
+
+// echo "<pre>";
+// print_r($result);
+
+
+foreach ($result as $order) {
+	echo "<pre>";
+    print_r($order->getData());  
+    }

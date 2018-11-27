@@ -1,0 +1,70 @@
+<?php
+
+$result=$block->getProductCollection();
+
+// foreach ($result as $product) {
+
+// echo "<pre>";
+// 	print_r($product->getData());
+
+// 			}
+?>
+
+<div class="owl-carousel owl-theme">
+<?php 
+
+foreach ($result as $product) {
+
+    ?>
+<div style="display:block; float:left; width:20%;">
+	<div>
+
+<?php
+
+	//$url=$this->helper('Magento\Catalog\Helper\Product')->getImageUrl($id);
+	$image = $this->helper('Magento\Catalog\Helper\Image')->init($product,'cart_page_product_thumbnail') ->constrainOnly(true)->keepAspectRatio(true)->keepFrame(false)->setImageFile($product->getImage())->getUrl();
+?>
+<img src="<?php echo $image ?>" />
+	</div>
+
+	<div><?php echo $product->getName(); ?></div>
+	<div><?php echo $product->getPrice(); ?></div>
+
+  <div><?php $url=$this->getAddToCartUrl($product); ?>
+
+ <form data-role="tocart-form" action="<?php echo $url;  ?>" method="post"> 
+ <?php  echo $block->getBlockHtml('formkey')?>
+  <button type="submit" title="Add to Cart" class="action tocart primary">
+  <span>Add to Cart</span>
+  </button>
+ </form>
+</div> 
+</div>
+ <?php
+
+    }
+    ?>
+</div>
+
+<script>
+require(['jquery', 'jquery/ui', 'owlcarousel234'], function($) {
+jQuery(document).ready(function() {
+jQuery('.owl-carousel').owlCarousel({
+loop : true,
+margin : 10,
+nav : true,
+responsive:{
+0:{
+items:1
+},
+600:{
+items:3
+},
+1000:{
+items:5
+}
+}
+});
+});
+});
+</script>
